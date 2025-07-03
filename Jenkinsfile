@@ -18,7 +18,7 @@ node {
                         sh "cat vote-ui-deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job deployment: ${env.BUILD_NUMBER}'"
-                        sh "git push https://joaquinniram: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@github.com/joaquinniram/vote-deploy.git HEAD:master"
+                        sh "git push https://joaquinniram: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@github.com/joaquinniram/vote-deploy.git HEAD:main"
       }
     }
   }
