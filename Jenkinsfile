@@ -10,15 +10,15 @@ node {
     stage('Update GIT') {
             script {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    withCredentials([usernamePassword(credentialsId: 'jenkins_github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    withCredentials([usernamePassword(credentialsId: 'joaquinniram', passwordVariable: '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', usernameVariable: 'joaquinniram')]) {
                         sh "git config user.email joaquin.niram@gmail.com"
-                        sh "git config user.name jenkins_github"
+                        sh "git config user.name joaquinniram"
                         sh "cat vote-ui-deployment.yaml"
                         sh "sed -i 's+joaquinniram/vote.*+joaquinniram/vote:${DOCKERTAG}+g' vote-ui-deployment.yaml"
                         sh "cat vote-ui-deployment.yaml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job deployment: ${env.BUILD_NUMBER}'"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/vote-deploy.git HEAD:master"
+                        sh "git push https://joaquinniram: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@github.com/joaquinniram/vote-deploy.git HEAD:master"
       }
     }
   }
